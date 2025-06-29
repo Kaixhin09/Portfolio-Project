@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Color Mode Switch</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body.light {
+            background-color: #F0E7D6;
+            color: #2D1B08;
+            transition: background-color 0.3s ease;
+        }
+
+        body.dark {
+            background-color: #2D1B08;
+            color:#F0E7D6;
+            transition: background-color 0.3s ease;
+        }
+
+        .click-area {
+            cursor: pointer;
+            padding: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .icon {
+            font-size: 24px;
+        }
+
+        p{
+        	color: #2D1B08;
+        }
+    </style>
+    <script>
+        function toggleColorMode() {
+            var body = document.body;
+            var clickArea = document.getElementById('click-area');
+            var icon = document.getElementById('color-icon');
+
+            if (body.classList.contains('light')) {
+                body.classList.remove('light');
+                body.classList.add('dark');
+                clickArea.classList.remove('light-mode');
+                clickArea.classList.add('dark-mode');
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            } else {
+                body.classList.remove('dark');
+                body.classList.add('light');
+                clickArea.classList.remove('dark-mode');
+                clickArea.classList.add('light-mode');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            }
+        }
+    </script>
+</head>
+<body class="light">
+    <h1>Color Mode Switch</h1>
+    <p>Click anywhere on the page to toggle between light and dark mode.</p>
+    <div id="click-area" class="click-area light-mode" onclick="toggleColorMode()">
+        <i id="color-icon" class="fas fa-sun icon"></i>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+</body>
+</html>
